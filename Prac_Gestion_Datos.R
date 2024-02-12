@@ -16,7 +16,7 @@ registros = 15
 #Ejercicio 1
 edades_descub = sample (1:130, registros, replace=T)
 print(edades_descub)
-median(edades_descub, na.rm=T)
+mean(edades_descub, na.rm=T)
 
 #Ejercicio 2
 cantid_artef = sample(1:130, registros, replace=T)
@@ -24,67 +24,60 @@ print(cantid_artef)
 sum(cantid_artef)
 
 #Ejercicio 3
-Profundidad_hallaz = sample (1:130, registros, replace=T)
+Profundidad_hallaz = sample (1:20.5, registros, replace=T)
 print(Profundidad_hallaz)
 max(Profundidad_hallaz)
 
 #Ejercicio 4
 mat_encontra = sample (c("Metal", "Lítico", "Cerámico"))
-length(mat_encontra)
+length (mat_encontra)
 
 #Ejercicio 5
-años_excav <- sample (1:130, registros, replace=T)
+años_excav <- c(1995, 2002, 2005,2007,2016)
 print(años_excav)
-sum(años_excav)
+length(años_excav)
 
 #Ejercicio 6
-matriz = matrix(c(1:9), nrow=3, ncol=3, byrow=F,
-                dimnames = list(c(1970, 1995, 2002), c("Carmona", "Santiponce", "Baelo Claudia")))
+matriz = matrix(c(10,20,24,33,35,40), nrow=2, byrow=F)
 print(matriz)
-sumafil <- apply(matriz, 1, sum)
-print(sumafil)
-#2002 año de mas excavaciones.
+año_max_excav <- which.max(rowSums(matriz))
+print(año_max_excav)
+#El segundo año es el de mas excavaciones.
 
 #Ejercicio 7
-matriz<- matrix(c(1:9), nrow=3, ncol=3, byrow=F, dimnames= list(c("yac 1", "yac 2", "yac 3")))
+matriz<- matrix(c(40,55,56,80,91,73), nrow=2, byrow=F)
 print(matriz)
-columna_num <- "yac 2"
-media_col = mean(matriz[columna_num])
-print(media_col)
+region_antigua <- which.min(colMeans(matriz))
+print(region_antigua)
+
 
 #Ejercicio 8 
 
-matriz = matrix(c(1:9), nrow= 3, ncol=3, byrow = F,
-                dimnames= list(c("Prehistoria", "Romano", "Islámico"), c("Cerámico", "Lítico", "Mineral")))
+matriz = matrix(c(40,19,43,23,35,14), nrow= 2, byrow = F)
 print(matriz)
-sumafilas = apply(matriz, 1, sum)
-print(sumafilas)
-#Islámico periodo con más artefactos
+Artef_Periodo <- which.max(rowSums(matriz))
+print(Artef_Periodo)
+#Primer periodo con más artefactos
 
 #Ejercicio 9
 
-matriz <- matrix(c(1:9), 
-                 nrow=3, ncol=3, byrow=F, 
-                 dimnames = list(c("yacimiento1", "yacimiento2", "yacimiento3"), 
-                                 c(1,2,3)))
+matriz <- matrix(c(12, 14.5, 22.3, 21.4, 9.7, 10.4), 
+                 nrow=2, byrow=F)
 print(matriz)
-sumafilas <- apply(matriz, 1, sum)
-print(sumafilas)
+menor_prof <- which.min(rowSums(matriz))
+print(menor_prof)
 #yacimiento 1 sitio con menos profundidades.
 
 #Ejercicio 10
-matriz = matrix(c(1:9), nrow= 3, ncol=3, byrow=F,
-                dimnames= list(c("Prehistoria", "Romano", "Islámico"), 
-                               c("Cerámico", "Lítico", "Mineral")))
+matriz = matrix(c(20,12,34,53,9,62), nrow= 2, byrow=F)
 print(matriz)
-sumacolumn <- apply(matriz, 2, sum)
-print (sumacolumn)
-#Mineral
+mat_comun <- which.max(colMeans(matriz))
+print(mat_comun)
 
 #Ejercicio 11
 yacimiento <- sample(c("Yac1", "Yac2", "Yac3"), registros, replace=T)
 tipo_artef <- sample(c("Céramico", "Lítico", "Mineral"), registros, replace=T)
-fecha_descubr <- sample(1900:2030, registros, replace=T)
+fecha_descubr <- sample(1900:2010, registros, replace=T)
 print(fecha_descubr)
 descripcion <- sample(c("Hueso", "Arma", "Utensilio"), registros, replace=T)
 registros_artef <- data.frame(yacimiento= yacimiento,tipodeartef = tipo_artef,
